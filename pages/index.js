@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useState } from 'react';
 import { KIND_LABELS } from '../constants/labels';
 import Layout from '../components/layout';
+import SearchForm from '../components/searchForm';
 
 export default function Home({initialNurseries}) {
   const [nurseries, setNurseries] = useState(initialNurseries);
@@ -13,6 +14,9 @@ export default function Home({initialNurseries}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <div>
+        <SearchForm />
+      </div>
       <div>
         {nurseries.map((nursery) => (
           <div className="box" key={nursery.code}>
