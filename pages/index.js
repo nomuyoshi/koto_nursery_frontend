@@ -1,7 +1,11 @@
-import Head from 'next/head'
-import Layout from '../components/layout'
+import Head from 'next/head';
+import { useState } from 'react';
+import { KIND_LABELS } from '../constants/labels';
+import Layout from '../components/layout';
+import SearchForm from '../components/searchForm';
 
-export default function Home() {
+export default function Home({initialNurseries}) {
+  const [nurseries, setNurseries] = useState(initialNurseries);
   return (
     <Layout>
       <Head>
@@ -10,7 +14,31 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>hogehohgoe</div>
+      <SearchForm setNurseries={setNurseries} />
+      <div>
+        {nurseries.map((nursery) => (
+          <div className="box" key={nursery.code}>
+            {nursery.name} {KIND_LABELS[nursery.kind]}<br />
+            {nursery.address}
+          </div>
+        ))}
+      </div>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  const url = `${process.env.BASE_API_URL}/nurseries/search.json`;
+  const data = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+  }).then(res => res.json());
+  return {
+    props: {
+      initialNurseries: data
+    }
+  };
 }
