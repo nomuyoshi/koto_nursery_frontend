@@ -15,7 +15,7 @@ export default function Home({initialNurseries}) {
       </Head>
 
       <div>
-        <SearchForm />
+        <SearchForm setNurseries={setNurseries}/>
       </div>
       <div>
         {nurseries.map((nursery) => (
@@ -30,8 +30,14 @@ export default function Home({initialNurseries}) {
 }
 
 export async function getStaticProps() {
-  const url = `${process.env.API_URL}/nursery_schools.json`;
-  const data = await fetch(url).then(res => res.json());
+  const url = `${process.env.BASE_API_URL}/nurseries/search.json`;
+  const data = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+  }).then(res => res.json());
   return {
     props: {
       initialNurseries: data

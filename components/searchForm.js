@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { KIND_LABELS, MIN_AGE_TYPE_LABELS } from '../constants/labels';
 
-export default function SearchForm() {
+export default function SearchForm({setNurseries}) {
   const [params, setParams] = useState({
     minAgeType: '',
     kinds: {},
@@ -49,10 +49,13 @@ export default function SearchForm() {
       address: params.address,
       km: params.km,
       kinds: kinds,
-    }
-
-    search(reqParams);
-    // TODO: setNurseries
+    };
+    search(reqParams)
+      .then(data => setNurseries(data))
+      .catch((err) => {
+        console.error(err);
+        alert('エラーが発生しました。もう一度お試しください。');
+      })
   }
 
   return (
@@ -80,6 +83,7 @@ export default function SearchForm() {
           <p className="control">
             <span className="select">
               <select name="km" onChange={handleChangeParams} value={params.km}>
+                <option value="0.1">100m以内</option>
                 <option value="0.3">300m以内</option>
                 <option value="0.5">500m以内</option>
                 <option value="1.0">1km以内</option>
@@ -96,7 +100,21 @@ export default function SearchForm() {
 };
 
 async function search(params = {}) {
-  console.log(params);
-  // TODO
+  const url = `${process.env.BASE_API_URL}/nurseries/search.json`;
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+    body: JSON.stringify(params),
+  })
+
+  const data = await res.json();
+  if (res.status != 200) {
+    throw Error(data.error);
+  }
+
+  return data;
 }
 
