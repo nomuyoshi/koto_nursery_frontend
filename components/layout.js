@@ -1,6 +1,6 @@
 export default function Layout({ children }) {
   return (
-    <div className="container">
+    <div className="container is-max-desktop">
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <a className="navbar-item" href="https://bulma.io">
@@ -8,9 +8,7 @@ export default function Layout({ children }) {
           </a>
         </div>
       </nav>
-      <div className="columns is-desktop is-centered">
-        <div className="column is-8-desktop">{children}</div>
-      </div>
+      {children}
     </div>
   )
 }

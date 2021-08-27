@@ -14,7 +14,10 @@ export default function Home({initialNurseries}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <SearchForm setNurseries={setNurseries} />
+      <div className="section">
+        <SearchForm setNurseries={setNurseries} />
+      </div>
+      
       <div>
         {nurseries.map((nursery) => (
           <div className="box" key={nursery.code}>

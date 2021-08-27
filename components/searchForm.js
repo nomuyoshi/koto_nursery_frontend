@@ -63,12 +63,12 @@ export default function SearchForm({setNurseries}) {
         <div className="field">
           <label className="label">保育園種別</label>
           <div class="control">
-          {Object.entries(KIND_LABELS).map(([value, label]) => (
-            <label className="checkbox" key={value}>
-              <input type="checkbox" id={value} name="kinds" onChange={handleChangeParams} checked={params.kinds[value] ? true : false} />
-              {label}
-            </label>
-          ))}
+            {Object.entries(KIND_LABELS).map(([value, label]) => (
+              <label className="checkbox" style={{marginRight: '30px'}} key={value}>
+                <input type="checkbox" id={value} name="kinds" onChange={handleChangeParams} checked={params.kinds[value] ? true : false} />
+                {label}
+              </label>
+            ))}
           </div>
         </div>
         <div className="field">
@@ -87,9 +87,6 @@ export default function SearchForm({setNurseries}) {
         <label className="label">近くの保育園を探す</label>
         <div className="field has-addons has-addons-centered">
           <p className="control">
-            <a className="button is-static">東京都江東区</a>
-          </p>
-          <p className="control">
             <input name="address" className="input" type="text" placeholder="住所" onChange={handleChangeParams} value={params.address} />
           </p>
           <p className="control">
@@ -104,7 +101,7 @@ export default function SearchForm({setNurseries}) {
             </span>
           </p>
         </div>
-        <div className="control">
+        <div className="control has-text-centered">
           <button className="button is-primary" onClick={onClickSubmit}>検索</button>
         </div>
       </>
