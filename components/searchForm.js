@@ -59,24 +59,36 @@ export default function SearchForm({setNurseries}) {
   }
 
   return (
-      <div>
-        <label className="label">保育園種別</label>
-        {Object.entries(KIND_LABELS).map(([value, label]) => (
-          <label className="checkbox" key={value}>
-            <input type="checkbox" id={value} name="kinds" onChange={handleChangeParams} checked={params.kinds[value] ? true : false} />
-            {label}
-          </label>
-        ))}
-        <label className="label">保育開始年齢</label>
-        <div className="select">
-          <select name="minAgeType" onChange={handleChangeParams} value={params.minAgeType}>
-            <option key="none">問わない</option>
-            {Object.entries(MIN_AGE_TYPE_LABELS).map(([value, label]) => (
-              <option key={value} value={value}>{label}〜</option>
-            ))}
-          </select>
+      <>
+        <div className="field">
+          <label className="label">保育園種別</label>
+          <div class="control">
+          {Object.entries(KIND_LABELS).map(([value, label]) => (
+            <label className="checkbox" key={value}>
+              <input type="checkbox" id={value} name="kinds" onChange={handleChangeParams} checked={params.kinds[value] ? true : false} />
+              {label}
+            </label>
+          ))}
+          </div>
         </div>
+        <div className="field">
+          <label className="label">保育開始年齢</label>
+          <div class="control">
+            <div className="select">
+              <select name="minAgeType" onChange={handleChangeParams} value={params.minAgeType}>
+                <option key="none">問わない</option>
+                {Object.entries(MIN_AGE_TYPE_LABELS).map(([value, label]) => (
+                  <option key={value} value={value}>{label}〜</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+        <label className="label">近くの保育園を探す</label>
         <div className="field has-addons has-addons-centered">
+          <p className="control">
+            <a className="button is-static">東京都江東区</a>
+          </p>
           <p className="control">
             <input name="address" className="input" type="text" placeholder="住所" onChange={handleChangeParams} value={params.address} />
           </p>
@@ -95,7 +107,7 @@ export default function SearchForm({setNurseries}) {
         <div className="control">
           <button className="button is-primary" onClick={onClickSubmit}>検索</button>
         </div>
-      </div>
+      </>
   );
 };
 
