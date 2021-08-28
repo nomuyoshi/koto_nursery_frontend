@@ -35,9 +35,9 @@ export default function Home({initialNurseries}) {
             </span>
           </p>
           <ul className="is-size-7">
-            <li>入園可能年齢：{MIN_AGE_TYPE_LABELS[nursery.min_acceptable_age_type]} 〜</li>
-            <li>保育時間：{OPENING_TYPE_LABELS[nursery.opening_type]}</li>
-            <li>定員：TODO</li>
+            <li>入園可能年齢：{MIN_AGE_TYPE_LABELS[nursery.minAgeType]} 〜</li>
+            <li>保育時間：{OPENING_TYPE_LABELS[nursery.openingType]}</li>
+            <li>定員：{nursery.capacity}人</li>
           </ul>
         </div>
       ))}
