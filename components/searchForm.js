@@ -62,7 +62,7 @@ export default function SearchForm({setNurseries}) {
       <>
         <div className="field">
           <label className="label">保育園種別</label>
-          <div class="control">
+          <div className="control">
             {Object.entries(KIND_LABELS).map(([value, label]) => (
               <label className="checkbox" style={{marginRight: '30px'}} key={value}>
                 <input type="checkbox" id={value} name="kinds" onChange={handleChangeParams} checked={params.kinds[value] ? true : false} />
@@ -73,7 +73,7 @@ export default function SearchForm({setNurseries}) {
         </div>
         <div className="field">
           <label className="label">保育開始年齢</label>
-          <div class="control">
+          <div className="control">
             <div className="select">
               <select name="minAgeType" onChange={handleChangeParams} value={params.minAgeType}>
                 <option key="none">問わない</option>

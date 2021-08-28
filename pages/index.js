@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import { useState } from 'react';
-import { KIND_LABELS } from '../constants/labels';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
+import { KIND_LABELS, MIN_AGE_TYPE_LABELS, OPENING_TYPE_LABELS } from '../constants/labels';
 import Layout from '../components/layout';
 import SearchForm from '../components/searchForm';
 
@@ -17,15 +19,28 @@ export default function Home({initialNurseries}) {
       <div className="section">
         <SearchForm setNurseries={setNurseries} />
       </div>
-      
-      <div>
-        {nurseries.map((nursery) => (
-          <div className="box" key={nursery.code}>
-            {nursery.name} {KIND_LABELS[nursery.kind]}<br />
-            {nursery.address}
-          </div>
-        ))}
-      </div>
+
+      {nurseries.map((nursery) => (
+        <div className="box" key={nursery.code}>
+          <p>
+            <span className="tag is-primary mr-2">{KIND_LABELS[nursery.kind]}</span>
+            <span className="has-text-weight-bold">{nursery.name}</span>
+          </p>
+          <p className="is-size-7">
+            <span className="icon-text">
+              <span className="icon">
+                <FontAwesomeIcon icon={faMapMarkerAlt} size="lg" />
+              </span>
+              <span>{nursery.address}</span>
+            </span>
+          </p>
+          <ul className="is-size-7">
+            <li>入園可能年齢：{MIN_AGE_TYPE_LABELS[nursery.min_acceptable_age_type]} 〜</li>
+            <li>保育時間：{OPENING_TYPE_LABELS[nursery.opening_type]}</li>
+            <li>定員：TODO</li>
+          </ul>
+        </div>
+      ))}
     </Layout>
   )
 }
