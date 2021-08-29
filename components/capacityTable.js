@@ -2,10 +2,11 @@ export default function CapacityTable({ capacities }) {
   const classAges = [0, 1, 2, 3, 4, 5];
   const capacityPerClass = classAges.map((age) => {
     const capacity = capacities.find(c => c.age == age);
-    if (capacity) {
-      return capacity.num;
-    }
-    return null;
+    const num = capacity ? capacity.num : null;
+    return {
+      age,
+      num,
+    };
   });
   return (
     <table className="table">
@@ -21,11 +22,11 @@ export default function CapacityTable({ capacities }) {
       </thead>
       <tbody className="has-text-centered">
         <tr>
-          {capacityPerClass.map((num) => (
-            <td>{num ? num : '-'}</td>
+          {capacityPerClass.map((c) => (
+            <td key={c.age}>{c.num ? c.num : '-'}</td>
           ))}
         </tr>
       </tbody>
     </table>
   )
-};
+}
