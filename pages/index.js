@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { KIND_LABELS, MIN_AGE_TYPE_LABELS, OPENING_TYPE_LABELS } from '../constants/labels';
+import { postSearch } from '../lib/nursery';
 import Layout from '../components/layout';
 import SearchForm from '../components/searchForm';
 
@@ -36,7 +37,7 @@ export default function Home({initialNurseries}) {
           </p>
           <ul className="is-size-7">
             <li>入園可能年齢：{MIN_AGE_TYPE_LABELS[nursery.minAgeType]} 〜</li>
-            <li>保育時間：{OPENING_TYPE_LABELS[nursery.openingType]}</li>
+            <li>開所時間：{OPENING_TYPE_LABELS[nursery.openingType]}</li>
             <li>定員：{nursery.capacity}人</li>
           </ul>
         </div>
@@ -46,17 +47,15 @@ export default function Home({initialNurseries}) {
 }
 
 export async function getStaticProps() {
-  const url = `${process.env.BASE_API_URL}/nurseries/search.json`;
-  const data = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    },
-  }).then(res => res.json());
+  const res = await postSearch();
+  const data = await res.json();
+  if (res.status != 200) {
+    throw Error(data.error);
+  }
+
   return {
     props: {
-      initialNurseries: data
+      initialNurseries: data,
     }
   };
 }

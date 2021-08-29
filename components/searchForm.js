@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { KIND_LABELS, MIN_AGE_TYPE_LABELS } from '../constants/labels';
+import { postSearch } from '../lib/nursery';
 
 export default function SearchForm({setNurseries}) {
   const [params, setParams] = useState({
@@ -109,17 +110,9 @@ export default function SearchForm({setNurseries}) {
 };
 
 async function search(params = {}) {
-  const url = `${process.env.BASE_API_URL}/nurseries/search.json`;
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    },
-    body: JSON.stringify(params),
-  })
-
+  const res = await postSearch(params);
   const data = await res.json();
+
   if (res.status != 200) {
     throw Error(data.error);
   }

@@ -26,3 +26,9 @@ export const OPENING_TYPE_LABELS = {
   e: '7:30 〜 18:30（延長 18:30 〜 19:30）※ 土曜保育なし',
   f: '7:30 〜 18:30 ※ 土曜保育なし',
 };
+
+export const OVERTIME_CONDITION_TYPE_LABELS = {
+  one_year_old: "満1歳から",
+  one_year_old_class: "1歳児クラスから",
+  zero_year_old_class: "月齢を問わず0歳児クラスから",
+};
