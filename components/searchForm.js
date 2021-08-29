@@ -23,7 +23,7 @@ export default function SearchForm({setNurseries}) {
           [key]: value,
         };
         break;
-      case 'kinds':
+      case 'kinds': {
         const newKinds = {
           ...params.kinds,
           [e.target.id]: e.target.checked,
@@ -32,6 +32,8 @@ export default function SearchForm({setNurseries}) {
           ...params,
           kinds: newKinds,
         }
+        break;
+      }
       default:
         break;
     }
@@ -39,7 +41,7 @@ export default function SearchForm({setNurseries}) {
     setParams(newParams)
   }
 
-  const onClickSubmit = (e) => {
+  const onClickSubmit = () => {
     const kinds = [];
     Object.entries(params.kinds).forEach(([key, value]) => {
       if (value) { kinds.push(key); } 
@@ -107,7 +109,7 @@ export default function SearchForm({setNurseries}) {
         </div>
       </>
   );
-};
+}
 
 async function search(params = {}) {
   const res = await postSearch(params);
