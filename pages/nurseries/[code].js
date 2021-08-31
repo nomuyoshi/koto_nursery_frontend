@@ -22,7 +22,7 @@ export default function Nursery({ nursery, capacities }) {
             {' '}
             [
             <FontAwesomeIcon icon={faExternalLinkAlt} />
-            <a href={nursery.url}>公式HP</a>
+            <a href={nursery.url} target="_blank">公式HP</a>
             ]
           </span>
         </h2>
