@@ -9,7 +9,7 @@ export default function CapacityTable({ capacities }) {
     };
   });
   return (
-    <table className="table">
+    <table className="table is-fullwidth">
       <thead className="has-text-centered">
         <tr>
           <th>0歳</th>

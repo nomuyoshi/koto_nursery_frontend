@@ -3,12 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from '../../components/layout';
 import EmbedMap from '../../components/embedMap';
 import CapacityTable from '../../components/capacityTable';
+import BorderlineTable from '../../components/borderlineTable';
 import { postSearch, getNursery } from '../../lib/nursery';
 import { getCapacities } from '../../lib/capacity';
+import { getBorderlines } from '../../lib/borderline';
 import { KIND_LABELS, MIN_AGE_TYPE_LABELS, OPENING_TYPE_LABELS, OVERTIME_CONDITION_TYPE_LABELS } from '../../constants/labels';
 
-export default function Nursery({ nursery, capacities }) {
-  console.log(capacities);
+export default function Nursery({ nursery, capacities, borderlines }) {
   let overtimeNoticeText = '';
   if (nursery.overtimeConditionType) {
     overtimeNoticeText += `※ 延長保育は${OVERTIME_CONDITION_TYPE_LABELS[nursery.overtimeConditionType]}`;
@@ -61,7 +62,7 @@ export default function Nursery({ nursery, capacities }) {
       </div>
       <div className="p-5">
         <h3 className="title is-5">入園可能ボーダー</h3>
-        <CapacityTable capacities={capacities} />
+        <BorderlineTable borderlines={borderlines} />
       </div>
       <div className="p-5">
         <h3 className="title is-5">定員</h3>
@@ -95,10 +96,14 @@ export async function getStaticProps({ params }) {
   const capacitiesRes = await getCapacities(params.code);
   const capacities = await capacitiesRes.json();
 
+  const borderlinesRes = await getBorderlines(params.code);
+  const borderlines = await borderlinesRes.json();
+
   return {
     props: {
       nursery,
       capacities,
+      borderlines,
     }
   };
 }
