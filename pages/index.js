@@ -28,42 +28,36 @@ export default function Home({initialNurseries}) {
             <div className="block">
               <Link href={`/nurseries/${nursery.code}`}>
                 <a style={{color:'#4a4a4a'}}>
-                  <div className="is-pulled-left">
-                    <p>
-                      <span className="tag is-primary mr-2">{KIND_LABELS[nursery.kind]}</span>
-                      <span className="has-text-weight-bold">{nursery.name}</span>
-                    </p>
-                    <p>
-                      <span className="icon-text">
-                        <span className="icon">
-                          <FontAwesomeIcon icon={faMapMarkerAlt} size="lg" />
-                        </span>
-                        <span>{nursery.address}</span>
+                  <p>
+                    <span className="tag is-primary mr-2">{KIND_LABELS[nursery.kind]}</span>
+                    <span className="has-text-weight-bold">{nursery.name}</span>
+                  </p>
+                  <p>
+                    <span className="icon-text">
+                      <span className="icon">
+                        <FontAwesomeIcon icon={faMapMarkerAlt} size="lg" />
                       </span>
-                    </p>
-                    <p>
-                      <span className="icon-text">
-                        <span className="icon"><FontAwesomeIcon icon={faCheckCircle} size="lg" /></span>
-                        <span>入園可能年齢：{MIN_AGE_TYPE_LABELS[nursery.minAgeType]} 〜</span>
-                      </span>
-                    </p>
-                    <p className="is-hidden-mobile">
-                      <span className="icon-text">
-                        <span className="icon"><FontAwesomeIcon icon={faClock} size="lg" /></span>
-                        <span>開所時間：{OPENING_TYPE_LABELS[nursery.openingType]}</span>
-                      </span>
-                    </p>
-                    <p>
-                      <span className="icon-text">
-                        <span className="icon"><FontAwesomeIcon icon={faBaby} size="lg" /></span>
-                        <span>定員：{nursery.capacity}人</span>
-                      </span>
-                    </p>
-                  </div>
-                  <div className="is-pulled-right">
-
-                  </div>
-                  <div className="is-clearfix"></div>
+                      <span>{nursery.address}</span>
+                    </span>
+                  </p>
+                  <p>
+                    <span className="icon-text">
+                      <span className="icon"><FontAwesomeIcon icon={faCheckCircle} size="lg" /></span>
+                      <span>入園可能年齢：{MIN_AGE_TYPE_LABELS[nursery.minAgeType]} 〜</span>
+                    </span>
+                  </p>
+                  <p className="is-hidden-mobile">
+                    <span className="icon-text">
+                      <span className="icon"><FontAwesomeIcon icon={faClock} size="lg" /></span>
+                      <span>開所時間：{OPENING_TYPE_LABELS[nursery.openingType]}</span>
+                    </span>
+                  </p>
+                  <p>
+                    <span className="icon-text">
+                      <span className="icon"><FontAwesomeIcon icon={faBaby} size="lg" /></span>
+                      <span>定員：{nursery.capacity}人</span>
+                    </span>
+                  </p>
                 </a>
               </Link>
             </div>
