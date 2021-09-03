@@ -105,7 +105,7 @@ export default function SearchForm({setNurseries}) {
           </p>
         </div>
         <div className="control has-text-centered">
-          <button className="button is-primary" onClick={onClickSubmit}>検索</button>
+          <button className="button is-success" onClick={onClickSubmit}>検索</button>
         </div>
       </>
   );
