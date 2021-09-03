@@ -14,6 +14,11 @@ export default function BorderlineTable({ borderlines }) {
           {borderlines.map(b => <BorderlineTableRow key={b.id} borderline={b} /> )}
         </tbody>
       </table>
+      <p className="is-size-7">
+        ※ 「-」: 定員０<br />
+        ※ 「非公開」: 入園者一人の場合非公開<br />
+        ※ 「なし」: 全員入園<br />
+      </p>
     </div>
   )
 }

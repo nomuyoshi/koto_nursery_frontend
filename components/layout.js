@@ -15,7 +15,7 @@ export default function Layout({ children }) {
                 <span className="icon">
                   <FontAwesomeIcon icon={faLeaf} size="lg" className="" />
                 </span>
-                <span>KOTO ほいくえん</span>
+                <h1>KOTO ほいくえん</h1>
               </span>
             </a>
           </Link>
