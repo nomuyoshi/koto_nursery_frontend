@@ -99,7 +99,7 @@ export default function SearchForm({setNurseries}) {
             <div className="control">
               <div className="select">
                 <select name="minAgeType" onChange={handleChangeParams} value={params.minAgeType}>
-                  <option key="none">問わない</option>
+                  <option key="none" value="">問わない</option>
                   {Object.entries(MIN_AGE_TYPE_LABELS).map(([value, label]) => (
                     <option key={value} value={value}>{label}〜</option>
                   ))}
