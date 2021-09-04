@@ -3,6 +3,7 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from '../../components/layout';
 import Meta from '../../components/meta';
+import Sns from '../../components/sns';
 import EmbedMap from '../../components/embedMap';
 import CapacityTable from '../../components/capacityTable';
 import BorderlineTable from '../../components/borderlineTable';
@@ -17,12 +18,12 @@ export default function Nursery({ nursery, capacities, borderlines }) {
     overtimeNoticeText += `※ 延長保育は${OVERTIME_CONDITION_TYPE_LABELS[nursery.overtimeConditionType]}`;
   }
 
-  const title = `${nursery.name}の保育園情報`
+  const pageTitle = `${nursery.name}の保育園情報`
   const description = `江東区認可保育園一覧サイト。${nursery.name}の基本情報から定員や過去の入園可能点数（ボーダー）までまとめて確認できます。`;
   return (
     <Layout>
-      <Meta title={title} description={description} />
-      <div className="p-5">
+      <Meta pageTitle={pageTitle} description={description} />
+      <div>
         <h2 className="title is-4">
           {nursery.name}
           {nursery.url &&
@@ -37,6 +38,7 @@ export default function Nursery({ nursery, capacities, borderlines }) {
             </span>
           }
         </h2>
+        <Sns />
         <table className="table is-fullwidth">
           <tbody>
             <tr>

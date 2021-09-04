@@ -30,7 +30,6 @@ function BorderlineTableRow({ borderline }) {
   const borderlineByClasses = classAges.map((age) => {
     const classAgeBorderline = borderline.data.find(b => b.age == age);
     let point;
-    console.log(classAgeBorderline);
     if (!classAgeBorderline || !classAgeBorderline.point) {
       point = '-';
     } else if (classAgeBorderline.undisclosed) {
@@ -50,9 +49,7 @@ function BorderlineTableRow({ borderline }) {
   return (
     <tr>
       <th>{borderline.year}年</th>
-      {borderlineByClasses.map((b) => (
-        <td key={b.age}>{b.point}</td>      
-      ))}
+      {borderlineByClasses.map(b => <td key={b.age}>{b.point}</td>)}
     </tr>
   )
 }

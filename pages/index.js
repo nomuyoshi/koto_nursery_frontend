@@ -6,26 +6,27 @@ import { KIND_LABELS, MIN_AGE_TYPE_LABELS, OPENING_TYPE_LABELS } from '../consta
 import { postSearch } from '../lib/nursery';
 import Layout from '../components/layout';
 import Meta from '../components/meta';
+import Sns from '../components/sns';
 import SearchForm from '../components/searchForm';
 
 export default function Home({initialNurseries}) {
   const [nurseries, setNurseries] = useState(initialNurseries);
-  const title = '江東区認可保育園一覧'
+  const pageTitle = '江東区認可保育園一覧';
   const description = '江東区認可保育園一覧サイト。住所から近くの認可保育園を検索でき、定員や過去の入園可能点数（ボーダー）もまとめて確認できます。';
   return (
     <Layout>
-      <Meta title={title} description={description} />
-      <div className="content m-4">
+      <Meta pageTitle={pageTitle} description={description} />
+      <div className="content">
         <div className="notification is-success is-light is-size-7">
           江東区が発行する「保育園等入園のしおり」、「保育園入所指数ボーダー表」をもとに作成した認可保育園検索サービスです。
         </div>
       </div>
-
-      <div className="content m-4">
+      <div className="content my-4">
         <SearchForm setNurseries={setNurseries} />
       </div>
 
-      <div className="content m-4">
+      <div className="content my-4">
+        <Sns />
         <hr />
         <h2 className="title is-5">江東区認可保育園一覧</h2>
         <hr />

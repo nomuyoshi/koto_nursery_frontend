@@ -19,7 +19,9 @@ export default function Layout({ children }) {
           </Link>
         </div>
       </nav>
-      {children}
+      <div className="content m-4">
+        {children}
+      </div>
     </div>
   )
 }
