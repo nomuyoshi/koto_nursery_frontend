@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faChevronCircleDown, faChevronCircleUp } from '@fortawesome/free-solid-svg-icons';
 
 export default function SearchForm({setNurseries}) {
+  const [requesting, setRequesting] = useState(false);
   const [visible, setVisible] = useState(false);
   const [params, setParams] = useState({
     minAgeType: '',
@@ -49,6 +50,7 @@ export default function SearchForm({setNurseries}) {
   }
 
   const onClickSubmit = () => {
+    setRequesting(true);
     const kinds = [];
     Object.entries(params.kinds).forEach(([key, value]) => {
       if (value) { kinds.push(key); } 
@@ -66,9 +68,11 @@ export default function SearchForm({setNurseries}) {
         console.error(err);
         alert('エラーが発生しました。もう一度お試しください。');
       })
+      .finally(() => setRequesting(false));
   }
 
   const messageHeaderIcon = visible ? faChevronCircleUp : faChevronCircleDown;
+  const submitBtnCss = requesting ? "button is-success is-loading" : "button is-success";
   return (
       <article className="message">
         <div className="message-header">
@@ -125,7 +129,7 @@ export default function SearchForm({setNurseries}) {
             </p>
           </div>
           <div className="control has-text-centered">
-            <button className="button is-success" onClick={onClickSubmit}>検索</button>
+            <button className={submitBtnCss} onClick={onClickSubmit}>検索</button>
           </div>
         </div>
       </article>
