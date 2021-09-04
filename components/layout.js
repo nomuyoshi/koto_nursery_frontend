@@ -1,6 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import logoPic from '../public/koto-nursery.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeaf } from '@fortawesome/free-solid-svg-icons';
 

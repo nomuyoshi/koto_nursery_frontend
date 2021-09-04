@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from '../../components/layout';
@@ -23,7 +24,9 @@ export default function Nursery({ nursery, capacities, borderlines }) {
             {' '}
             [
             <FontAwesomeIcon icon={faExternalLinkAlt} />
-            <a href={nursery.url} target="_blank">公式HP</a>
+            <Link href={nursery.url}>
+              <a target="_blank">公式HP</a>
+            </Link>
             ]
           </span>
         </h2>

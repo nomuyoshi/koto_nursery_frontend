@@ -7,7 +7,7 @@ export default function BorderlineTable({ borderlines }) {
         <thead className="has-text-centered">
           <tr>
             <th></th>
-            {classAges.map(age => <th>{age}歳</th>)}
+            {classAges.map(age => <th key={age}>{age}歳</th>)}
           </tr>
         </thead>
         <tbody className="has-text-centered">
