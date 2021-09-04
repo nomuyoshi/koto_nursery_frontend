@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Layout from '../../components/layout';
+import Meta from '../../components/meta';
 import EmbedMap from '../../components/embedMap';
 import CapacityTable from '../../components/capacityTable';
 import BorderlineTable from '../../components/borderlineTable';
@@ -15,20 +16,26 @@ export default function Nursery({ nursery, capacities, borderlines }) {
   if (nursery.overtimeConditionType) {
     overtimeNoticeText += `※ 延長保育は${OVERTIME_CONDITION_TYPE_LABELS[nursery.overtimeConditionType]}`;
   }
+
+  const title = `${nursery.name}の保育園情報`
+  const description = `江東区認可保育園一覧サイト。${nursery.name}の基本情報から定員や過去の入園可能点数（ボーダー）までまとめて確認できます。`;
   return (
     <Layout>
+      <Meta title={title} description={description} />
       <div className="p-5">
         <h2 className="title is-4">
           {nursery.name}
-          <span className="is-size-6 has-text-weight-normal">
-            {' '}
-            [
-            <FontAwesomeIcon icon={faExternalLinkAlt} />
-            <Link href={nursery.url}>
-              <a target="_blank">公式HP</a>
-            </Link>
-            ]
-          </span>
+          {nursery.url &&
+            <span className="is-size-6 has-text-weight-normal">
+              {' '}
+              [
+              <FontAwesomeIcon icon={faExternalLinkAlt} />
+              <Link href={nursery.url}>
+                <a target="_blank">公式HP</a>
+              </Link>
+              ]
+            </span>
+          }
         </h2>
         <table className="table is-fullwidth">
           <tbody>
