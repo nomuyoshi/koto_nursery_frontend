@@ -108,7 +108,7 @@ export default function SearchForm({setNurseries}) {
             </div>
           </div>
           <label className="label">近くの保育園を探す</label>
-          <div className="field has-addons has-addons-centered">
+          <div className="field has-addons">
             <p className="control">
               <input name="address" className="input" type="text" placeholder="住所" onChange={handleChangeParams} value={params.address} />
             </p>
