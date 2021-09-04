@@ -12,7 +12,7 @@ export default function BorderlineTable({ borderlines }) {
             </tr>
           </thead>
           <tbody className="has-text-centered">
-            {borderlines.map(b => <BorderlineTableRow key={b.id} borderline={b} /> )}
+            {borderlines.map(b => <BorderlineTableRow key={b.year} borderline={b} /> )}
           </tbody>
         </table>
       </div>

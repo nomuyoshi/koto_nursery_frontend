@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faChevronCircleDown, faChevronCircleUp } from '@fortawesome/free-solid-svg-icons';
 
 export default function SearchForm({setNurseries}) {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   const [params, setParams] = useState({
     minAgeType: '',
     kinds: {},

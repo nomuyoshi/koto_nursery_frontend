@@ -21,8 +21,8 @@ export default function Meta({pageTitle, description}) {
       <meta property="og:image" content={`${baseUrl}/ogp.png`} />
       <meta property="og:description" content={description} />
       <meta name="twitter:card" content="summary" />
-      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v11.0" nonce="A57BSQs1"></script>
+      <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
+      <script async defer crossOrigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v11.0" nonce="A57BSQs1"></script>
     </Head>
   )
 }
