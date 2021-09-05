@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export default function Affiliate() {
   return (
     <div className="level">
