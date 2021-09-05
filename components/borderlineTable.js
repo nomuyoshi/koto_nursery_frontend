@@ -30,14 +30,14 @@ function BorderlineTableRow({ borderline }) {
   const borderlineByClasses = classAges.map((age) => {
     const classAgeBorderline = borderline.data.find(b => b.age == age);
     let point;
-    if (!classAgeBorderline || !classAgeBorderline.point) {
-      point = '-';
-    } else if (classAgeBorderline.undisclosed) {
+    if (classAgeBorderline && classAgeBorderline.undisclosed) {
       point = '非公開';
-    } else if (classAgeBorderline.lessCapacity) {
+    } else if (classAgeBorderline && classAgeBorderline.lessCapacity) {
       point = 'なし';
-    } else {
+    } else if (classAgeBorderline && classAgeBorderline.point) {
       point = `${classAgeBorderline.point}`;
+    } else {
+      point = '-';
     }
 
     return {
