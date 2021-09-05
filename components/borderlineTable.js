@@ -3,7 +3,7 @@ const classAges = [0, 1, 2, 3, 4, 5];
 export default function BorderlineTable({ borderlines }) {
   return (
     <>
-      <div className="table-container">
+      <div className="table-container mb-0">
         <table className="table is-fullwidth" style={{whiteSpace: 'nowrap'}}>
           <thead className="has-text-centered">
             <tr>
