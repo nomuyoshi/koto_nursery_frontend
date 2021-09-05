@@ -5,7 +5,7 @@ import Layout from '../../components/layout';
 import Meta from '../../components/meta';
 import Sns from '../../components/sns';
 import EmbedMap from '../../components/embedMap';
-// import RakutenWidget from '../../components/rakutenWidget';
+import RakutenWidget from '../../components/rakutenWidget';
 import CapacityTable from '../../components/capacityTable';
 import BorderlineTable from '../../components/borderlineTable';
 import { postSearch, getNursery } from '../../lib/nursery';
@@ -73,6 +73,7 @@ export default function Nursery({ nursery, capacities, borderlines }) {
         </table>
         <EmbedMap address={nursery.address} />
       </div>
+      <RakutenWidget />
       <div>
         <h3 className="title is-5">入園可能ボーダー</h3>
         <BorderlineTable borderlines={borderlines} />
