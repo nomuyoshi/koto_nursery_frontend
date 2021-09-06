@@ -75,7 +75,7 @@ export default function Home({initialNurseries}) {
         ))}
       </div>
     </Layout>
-  )
+  );
 }
 
 export async function getStaticProps() {

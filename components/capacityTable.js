@@ -28,5 +28,5 @@ export default function CapacityTable({ capacities }) {
         </tr>
       </tbody>
     </table>
-  )
+  );
 }

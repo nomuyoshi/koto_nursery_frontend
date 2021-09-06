@@ -19,7 +19,7 @@ export default function Nursery({ nursery, capacities, borderlines }) {
     overtimeNoticeText += `※ 延長保育は${OVERTIME_CONDITION_TYPE_LABELS[nursery.overtimeConditionType]}`;
   }
 
-  const pageTitle = `${nursery.name}の保育園情報`
+  const pageTitle = `${nursery.name}の保育園情報`;
   const description = `江東区認可保育園一覧サイト。${nursery.name}の基本情報から定員や過去の入園可能点数（ボーダー）までまとめて確認できます。`;
   return (
     <Layout>
@@ -83,7 +83,7 @@ export default function Nursery({ nursery, capacities, borderlines }) {
         <CapacityTable capacities={capacities} />
       </div>
     </Layout>
-  )
+  );
 }
 
 export async function getStaticPaths() {
@@ -100,7 +100,7 @@ export async function getStaticPaths() {
   return {
     paths,
     fallback: false
-  }
+  };
 }
 
 export async function getStaticProps({ params }) {

@@ -7,5 +7,5 @@ export default function EmbedMap({ width = '100%', height = '350px', address }) 
         loading="lazy"
         src={src}>
       </iframe>
-  )
+  );
 }

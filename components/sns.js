@@ -27,7 +27,7 @@ export default function Sns() {
         </div>
       </>
     );
-  }
+  };
 
   return (
     <nav className="level is-mobile">
@@ -35,5 +35,5 @@ export default function Sns() {
         {process.browser && renderShareBtn()}
       </div>
     </nav>
-  )
+  );
 }

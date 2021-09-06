@@ -22,7 +22,7 @@ export default function BorderlineTable({ borderlines }) {
         ※ 「なし」: 全員入園<br />
       </p>
     </>
-  )
+  );
 }
 
 
@@ -43,7 +43,7 @@ function BorderlineTableRow({ borderline }) {
     return {
       age,
       point,
-    }
+    };
   });
 
   return (
@@ -51,5 +51,5 @@ function BorderlineTableRow({ borderline }) {
       <th>{borderline.year}年</th>
       {borderlineByClasses.map(b => <td key={b.age}>{b.point}</td>)}
     </tr>
-  )
+  );
 }

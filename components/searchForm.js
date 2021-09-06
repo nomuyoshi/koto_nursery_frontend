@@ -16,7 +16,7 @@ export default function SearchForm({setNurseries}) {
 
   const handleClickVisible = () => {
     setVisible(!visible);
-  }
+  };
 
   const handleChangeParams = (e) => {
     let newParams = {};
@@ -39,7 +39,7 @@ export default function SearchForm({setNurseries}) {
         newParams = {
           ...params,
           kinds: newKinds,
-        }
+        };
         break;
       }
       default:
@@ -47,7 +47,7 @@ export default function SearchForm({setNurseries}) {
     }
 
     setParams(newParams);
-  }
+  };
 
   const onClickSubmit = () => {
     setRequesting(true);
@@ -69,7 +69,7 @@ export default function SearchForm({setNurseries}) {
         alert('エラーが発生しました。もう一度お試しください。');
       })
       .finally(() => setRequesting(false));
-  }
+  };
 
   const messageHeaderIcon = visible ? faChevronCircleUp : faChevronCircleDown;
   const submitBtnCss = requesting ? "button is-success is-loading" : "button is-success";

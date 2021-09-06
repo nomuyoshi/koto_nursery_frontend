@@ -22,5 +22,5 @@ export default function Meta({pageTitle, description}) {
       <meta property="og:description" content={description} />
       <meta name="twitter:card" content="summary" />
     </Head>
-  )
+  );
 }
